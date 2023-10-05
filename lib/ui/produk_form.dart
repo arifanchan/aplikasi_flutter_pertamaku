@@ -10,7 +10,7 @@ class _ProdukFormState extends State<ProdukForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Form Produk'),
+        title: Text('Form Produk Arifa Chan Store'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -22,7 +22,7 @@ class _ProdukFormState extends State<ProdukForm> {
               decoration: InputDecoration(labelText: "Nama Produk"),
             ),
             TextField(
-              decoration: InputDecoration(labelText: "Harga"),
+              decoration: InputDecoration(labelText: "Harga Produk"),
             ),
             ElevatedButton(
               child: Text('Simpan'),
