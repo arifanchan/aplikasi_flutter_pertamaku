@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:aplikasi_flutter_pertamaku/ui/produk_form.dart';
+import 'package:aplikasi_flutter_pertamaku/ui/produk_detail.dart';
 
 class ProdukForm extends StatefulWidget {
   @override
@@ -6,31 +8,60 @@ class ProdukForm extends StatefulWidget {
 }
 
 class _ProdukFormState extends State<ProdukForm> {
+  final _kodeProdukTextboxController = TextEditingController();
+  final _namaProdukTextboxController = TextEditingController();
+  final _hargaProdukTextboxController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Form Produk Arifa Chan Store'),
+        title: Text('Form Produk'),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TextField(
-              decoration: InputDecoration(labelText: "Kode Produk"),
-            ),
-            TextField(
-              decoration: InputDecoration(labelText: "Nama Produk"),
-            ),
-            TextField(
-              decoration: InputDecoration(labelText: "Harga Produk"),
-            ),
-            ElevatedButton(
-              child: Text('Simpan'),
-              onPressed: () {},
-            )
+            _textboxKodeProduk(),
+            _textboxNamaProduk(),
+            _textboxHargaProduk(),
+            _tombolSimpan()
           ],
         ),
       ),
+    );
+  }
+
+  _textboxKodeProduk() {
+    return TextField(
+      decoration: InputDecoration(labelText: "Kode Produk"),
+      controller: _kodeProdukTextboxController,
+    );
+  }
+
+  _textboxNamaProduk() {
+    return TextField(
+      decoration: InputDecoration(labelText: "Nama Produk"),
+      controller: _namaProdukTextboxController,
+    );
+  }
+
+  _textboxHargaProduk() {
+    return TextField(
+      decoration: InputDecoration(labelText: "Harga"),
+      controller: _hargaProdukTextboxController,
+    );
+  }
+
+  _tombolSimpan() {
+    return ElevatedButton(
+      child: Text('Simpan'),
+      onPressed: () {
+        String kode_produk = _kodeProdukTextboxController.text;
+        String nama_produk = _namaProdukTextboxController.text;
+        int harga = int.parse(_hargaProdukTextboxController.text); //parsing dari String ke int
+        // pindah ke halaman Produk Detail dan mengirim data
+        Navigator.of(context).push(new MaterialPageRoute(builder: (context)=>ProdukDetail(kodeProduk: kode_produk, namaProduk: nama_produk, harga: harga,)));
+      },
     );
   }
 }
