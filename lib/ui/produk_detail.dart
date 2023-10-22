@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:aplikasi_flutter_pertamaku/ui/produk_form.dart';
 
 class ProdukDetail extends StatefulWidget {
   final String kodeProduk;
@@ -18,15 +17,6 @@ class _ProdukDetailState extends State<ProdukDetail> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Detail Produk Arifa Chan Store"),
-        // actions: [
-        //   GestureDetector(
-        //     child: Icon(Icons.add),
-        //     onTap: () async {
-        //       Navigator.push(context,new MaterialPageRoute(builder: (context) => ProdukForm()));
-        //     },
-        //   )
-        // ],
-
       ),
       body: Column(
         children: [
@@ -35,6 +25,34 @@ class _ProdukDetailState extends State<ProdukDetail> {
           Text("Harga : ${widget.harga.toString()}"), // jika didalam String
         ],
       ),
+    );
+  }
+}
+
+class ItemProduk extends StatelessWidget {
+  final String kodeProduk;
+  final String namaProduk;
+  final int harga;
+//membuat constructor
+  ItemProduk({ required this.kodeProduk,required  this.namaProduk,required  this.harga});
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        child: Card(
+          child: ListTile(
+            title: Text(namaProduk),
+            subtitle: Text(harga.toString()), //parsing dari int ke string
+          ),
+        ),
+        onTap: () {
+// pindah ke halaman Produk Detail dan mengirim data
+          Navigator.of(context).push(new MaterialPageRoute(
+              builder: (context) => ProdukDetail(
+                kodeProduk: kodeProduk,
+                namaProduk: namaProduk,
+                harga: harga,
+              )));
+        }
     );
   }
 }

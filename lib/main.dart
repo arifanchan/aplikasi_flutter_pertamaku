@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Aplikasi Flutter Pertama',
+      title: 'Aplikasi Flutter Pertamaku',
       // home: HelloWorld(),
       // home: ColumnWidget(),
       // home: RowWidget(),

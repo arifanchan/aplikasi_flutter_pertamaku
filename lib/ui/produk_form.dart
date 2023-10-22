@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:aplikasi_flutter_pertamaku/ui/produk_form.dart';
 import 'package:aplikasi_flutter_pertamaku/ui/produk_detail.dart';
 
 class ProdukForm extends StatefulWidget {
@@ -16,7 +15,7 @@ class _ProdukFormState extends State<ProdukForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Form Produk'),
+        title: Text('Form Produk Arifa Chan Store'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -47,7 +46,7 @@ class _ProdukFormState extends State<ProdukForm> {
 
   _textboxHargaProduk() {
     return TextField(
-      decoration: InputDecoration(labelText: "Harga"),
+      decoration: InputDecoration(labelText: "Harga Produk"),
       controller: _hargaProdukTextboxController,
     );
   }
